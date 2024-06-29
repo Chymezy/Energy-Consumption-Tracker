@@ -1,0 +1,40 @@
+
+  /* src/assets/styles/Home.css */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make sure it covers the full viewport height */
+    text-align: center;
+    background-image: url('../assets/images/homePage.jpg'); /* Update the path if necessary */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Optional: To ensure text is visible over the background image */
+  }
+  
+  .home-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background for better readability */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .home-container {
+      padding: 20px;
+    }
+  
+    .home-content {
+      padding: 10px;
+    }
+  
+    .home-content h1 {
+      font-size: 2rem;
+    }
+  
+    .home-content h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
