@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import logo from '../assets/logo.svg'; // Replace with your logo path
+import logo from '../assets/logos/logo_1.jpg'; // Replace with your logo path
 
 const Navbar = () => {
   const location = useLocation();
