@@ -1,38 +1,3 @@
-// // src/components/Footer.jsx
-
-// import React from 'react';
-// import { Box, Typography } from '@mui/material';
-
-// const Footer = () => {
-//   return (
-//     <Box
-//       component="footer"
-//       sx={{
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         padding: '10px',
-//         backgroundColor: '#f5f5f5',
-//         position: 'fixed',
-//         bottom: 0,
-//         width: '100%',
-//       }}
-//     >
-//       <Typography variant="body2" color="textSecondary">
-//         &copy; {new Date().getFullYear()} Energy Manager. All rights reserved.
-//       </Typography>
-//     </Box>
-//   );
-// };
-
-// export default Footer;
-
-// src/components/Footer.jsx
-
-// src/components/Footer.jsx
-
-// src/components/Footer.jsx
-
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -43,6 +8,7 @@ const Footer = () => {
   return (
     <Box
       component="footer"
+      className="footer"
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -51,9 +17,6 @@ const Footer = () => {
         backgroundColor: '#f5f5f5',
         width: '100%',
         boxShadow: '0px -2px 8px rgba(0, 0, 0, 0.1)',
-        position: 'relative',
-        bottom: 0,
-        mt: 'auto',
       }}
     >
       <Box>
