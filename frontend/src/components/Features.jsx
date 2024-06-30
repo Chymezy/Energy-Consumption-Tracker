@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
 import '../styles/Features.css';
-import backgroundVideo from '../assets/clips/tracker2.mp4';
+import backgroundVideo from '../assets/clips/meter-clip.mp4';
 
 const Features = () => {
   return (
