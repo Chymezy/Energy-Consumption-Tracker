@@ -29,7 +29,7 @@
 .features-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #fff; /* White text for contrast */
+  color: #858181; /* White text for contrast */
 }
 
 .feature-box {
@@ -54,4 +54,13 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #ddd; /* Light grey text for readability */
+}
+
+.feature-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-link:hover {
+  text-decoration: underline;
 }

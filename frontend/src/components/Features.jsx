@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 import '../styles/Features.css';
 import backgroundVideo from '../assets/clips/meter-clip.mp4';
 
@@ -19,7 +20,7 @@ const Features = () => {
             <Grid item xs={12} md={4}>
               <Box className="feature-box">
                 <Typography variant="h6" component="h3" gutterBottom className="feature-title">
-                  User Registration and Login
+                  <Link to="/register" className="feature-link">User Registration and Login</Link>
                 </Typography>
                 <Typography variant="body1" className="feature-description">
                   Create an account and log in to access and personalize your energy consumption data with ease.
@@ -29,7 +30,7 @@ const Features = () => {
             <Grid item xs={12} md={4}>
               <Box className="feature-box">
                 <Typography variant="h6" component="h3" gutterBottom className="feature-title">
-                  Add Energy Consumption Data
+                  <Link to="/add-energy-data" className="feature-link">Add Energy Consumption Data</Link>
                 </Typography>
                 <Typography variant="body1" className="feature-description">
                   Log your daily energy consumption to track and manage your energy usage over time.
@@ -39,7 +40,7 @@ const Features = () => {
             <Grid item xs={12} md={4}>
               <Box className="feature-box">
                 <Typography variant="h6" component="h3" gutterBottom className="feature-title">
-                  View Energy Consumption Trends
+                  <Link to="/view-trends" className="feature-link">View Energy Consumption Trends</Link>
                 </Typography>
                 <Typography variant="body1" className="feature-description">
                   Visualize your energy consumption patterns and trends with dynamic charts and graphs.
@@ -49,7 +50,7 @@ const Features = () => {
             <Grid item xs={12} md={4}>
               <Box className="feature-box">
                 <Typography variant="h6" component="h3" gutterBottom className="feature-title">
-                  Update Energy Consumption Data
+                  <Link to="/update-energy-data" className="feature-link">Update Energy Consumption Data</Link>
                 </Typography>
                 <Typography variant="body1" className="feature-description">
                   Ensure your records are accurate by updating or deleting previous energy consumption entries.
@@ -59,7 +60,7 @@ const Features = () => {
             <Grid item xs={12} md={4}>
               <Box className="feature-box">
                 <Typography variant="h6" component="h3" gutterBottom className="feature-title">
-                  Average Energy Consumption Insights
+                  <Link to="/average-insights" className="feature-link">Average Energy Consumption Insights</Link>
                 </Typography>
                 <Typography variant="body1" className="feature-description">
                   View your average energy consumption over selected periods to better understand your energy usage.
