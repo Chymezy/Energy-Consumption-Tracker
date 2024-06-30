@@ -1,0 +1,38 @@
+/* src/styles/Features.css */
+
+.features-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the video covers the entire area without zooming in */
+  z-index: -1;
+}
+
+.features-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.features-content .MuiBox-root {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.features-content .MuiTypography-h6 {
+  color: #333;
+}
+
+.features-content .MuiTypography-body1 {
+  color: #666;
+}
