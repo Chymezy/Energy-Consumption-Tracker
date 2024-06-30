@@ -1,34 +1,48 @@
 /* src/assets/styles/Navbar.css */
+
+.navbar-logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  font-family: 'Lobster', cursive; /* Custom font for the title */
+  font-size: 1.5rem;
+  color: #4267B2; /* Blended color similar to Facebook */
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem; /* Reduced font size for navigation buttons */
+  text-transform: none; /* Prevent uppercase transformation */
+}
+
+@media (max-width: 768px) {
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.7rem;
+  }
+}
+
+/* Active link styling */
 .active-link {
-    background-color: rgba(0, 0, 0, 0.1); /* Slightly faded color of the parent */
-    color: inherit; /* Keep the text color the same */
-    text-decoration: none; /* Remove the underline */
-    padding: 8px 16px; /* Add some padding for better appearance */
-    border-radius: 20px; /* Circular shape */
-  }
-  
-  /* Newly added media queries for Navbar responsiveness */
-  @media (max-width: 1200px) {
-    .navbar-button {
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (max-width: 992px) {
-    .navbar-button {
-      font-size: 0.8rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .navbar-button {
-      font-size: 0.7rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .navbar-button {
-      font-size: 0.6rem;
-    }
-  }
-  
+  background-color: rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+}

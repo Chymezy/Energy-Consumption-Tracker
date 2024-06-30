@@ -11,6 +11,11 @@ body, html, #root {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Remove any global font size if it exists */
+body, html {
+  font-size: initial; /* Reset any global font size */
+}
+
 .App {
   flex: 1;
   display: flex;
