@@ -13,16 +13,36 @@ const Navbar = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           Energy Manager
         </Typography>
-        <Button color="inherit" component={NavLink} to="/" exact className={location.pathname === '/' ? 'active-link' : ''}>
+        <Button
+          color="inherit"
+          component={NavLink}
+          to="/"
+          className={({ isActive }) => (isActive ? 'active-link' : '')} /* newly added or modified */
+        >
           Home
         </Button>
-        <Button color="inherit" component={NavLink} to="/features" className={location.pathname === '/features' ? 'active-link' : ''}>
+        <Button
+          color="inherit"
+          component={NavLink}
+          to="/features"
+          className={({ isActive }) => (isActive ? 'active-link' : '')} /* newly added or modified */
+        >
           Features
         </Button>
-        <Button color="inherit" component={NavLink} to="/about" className={location.pathname === '/about' ? 'active-link' : ''}>
+        <Button
+          color="inherit"
+          component={NavLink}
+          to="/about"
+          className={({ isActive }) => (isActive ? 'active-link' : '')} /* newly added or modified */
+        >
           About
         </Button>
-        <Button color="inherit" component={NavLink} to="/login" className={location.pathname === '/login' ? 'active-link' : ''}>
+        <Button
+          color="inherit"
+          component={NavLink}
+          to="/login"
+          className={({ isActive }) => (isActive ? 'active-link' : '')} /* newly added or modified */
+        >
           Login
         </Button>
       </Toolbar>
