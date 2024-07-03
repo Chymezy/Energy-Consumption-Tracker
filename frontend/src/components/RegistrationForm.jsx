@@ -1,8 +1,6 @@
-// src/components/RegistrationForm.jsx
-
 import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import { register } from '../api'; // Ensure you have the correct path
+import { registerService } from '../services/authService'; // Import from the service
 import '../styles/RegistrationForm.css'; // Create and import your custom CSS
 
 const RegistrationForm = () => {
@@ -33,7 +31,7 @@ const RegistrationForm = () => {
       for (const key in formData) {
         form.append(key, formData[key]);
       }
-      await register(formData.username, formData.password); // Adjust as per your backend requirements
+      await registerService(form); // Use the service function
       // Handle success (e.g., redirect to login)
     } catch (error) {
       console.error('Error during registration', error);
