@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import { registerService } from '../services/authService'; // Import from the service
-import '../styles/RegistrationForm.css'; // Create and import your custom CSS
+import { Container, TextField, Button, Typography, Box, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { registerService } from '../services/authService';
+import '../styles/RegistrationForm.css';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,11 @@ const RegistrationForm = () => {
     profilePicture: null,
   });
 
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData((prevData) => ({
@@ -26,22 +32,39 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSuccessMessage('');
+    setErrorMessage('');
     try {
       const form = new FormData();
       for (const key in formData) {
         form.append(key, formData[key]);
       }
-      await registerService(form); // Use the service function
-      // Handle success (e.g., redirect to login)
+      const response = await registerService(form);
+      setSuccessMessage(response.message);
+      // Clear the form
+      setFormData({
+        username: '',
+        email: '',
+        password: '',
+        fullName: '',
+        city: '',
+        country: '',
+        sex: '',
+        userType: '',
+        profilePicture: null,
+      });
+      // Redirect to login page
+      navigate('/login');
     } catch (error) {
-      console.error('Error during registration', error);
-      // Handle error (e.g., show error message)
+      setErrorMessage(error.response?.data?.message || 'Error during registration');
     }
   };
 
   return (
     <Container maxWidth="sm" className="registration-form">
       <Typography variant="h4" gutterBottom>Register</Typography>
+      {successMessage && <Alert severity="success">{successMessage}</Alert>}
+      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
       <form onSubmit={handleSubmit}>
         <TextField
           label="Username *"
