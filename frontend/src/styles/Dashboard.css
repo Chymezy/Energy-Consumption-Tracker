@@ -1,0 +1,42 @@
+/* src/assets/styles/Dashboard.css
+.dashboard-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .date-selector-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .date-input {
+    margin-right: 10px;
+  }
+  
+  .dashboard-grid {
+    margin-top: 20px;
+  }
+  
+  .dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+   */
+
+
+/* src/styles/Dashboard.css */
+.dashboard-container {
+    margin-top: 20px;
+  }
+  
+  .dashboard-card {
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  

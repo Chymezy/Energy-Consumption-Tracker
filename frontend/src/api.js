@@ -82,33 +82,96 @@
 // // Export API functions
 // export { login, register, addEnergyRecord, getEnergyRecords, getAnalytics };
 
+// import axios from 'axios';
+
+// // Define base URL for API requests
+// const API_URL = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:4444/api';
+
+// // Create axios instance
+// const api = axios.create({
+//   baseURL: API_URL,
+// });
+
+// // Request interceptor to add the token to headers
+// api.interceptors.request.use(
+//   config => {
+//     const token = localStorage.getItem('accessToken');
+//     if (token) {
+//       config.headers['Authorization'] = 'Bearer ' + token;
+//     }
+//     return config;
+//   },
+//   error => {
+//     Promise.reject(error)
+//   });
+
+// // Response interceptor to handle token expiration
+// api.interceptors.response.use(
+//   response => response,
+//   async error => {
+//     const originalRequest = error.config;
+//     if (error.response.status === 401 && !originalRequest._retry) {
+//       originalRequest._retry = true;
+//       try {
+//         const refreshToken = localStorage.getItem('refreshToken');
+//         const response = await axios.post(`${API_URL}/auth/refresh`, { refresh_token: refreshToken });
+//         const { access_token } = response.data;
+//         localStorage.setItem('accessToken', access_token);
+//         originalRequest.headers['Authorization'] = 'Bearer ' + access_token;
+//         return api(originalRequest);
+//       } catch (refreshError) {
+//         console.error('Token refresh failed', refreshError);
+//         // Handle refresh token expiration (e.g., logout user)
+//         localStorage.removeItem('accessToken');
+//         localStorage.removeItem('refreshToken');
+//         window.location.href = '/login';  // Redirect to login page
+//       }
+//     }
+//     return Promise.reject(error);
+//   });
+
+// // Define API endpoints
+// const login = (username, password) => api.post('/auth/login', { username, password });
+// const register = (username, password) => api.post('/user', { username, password });
+// const addEnergyRecord = (data) => api.post('/energy_records', data);
+// const getEnergyRecords = () => api.get('/energy_records');
+// const getAnalytics = () => api.get('/analytics');
+
+// // Optionally add update and delete methods for energy records
+// const updateEnergyRecord = (id, data) => api.put(`/energy_records/${id}`, data);
+// const deleteEnergyRecord = (id) => api.delete(`/energy_records/${id}`);
+
+// // Export API functions
+// export { login, register, addEnergyRecord, getEnergyRecords, getAnalytics, updateEnergyRecord, deleteEnergyRecord };
+
+
+
+// src/services/authService.js
+
 import axios from 'axios';
 
-// Define base URL for API requests
 const API_URL = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:4444/api';
 
-// Create axios instance
 const api = axios.create({
   baseURL: API_URL,
 });
 
-// Request interceptor to add the token to headers
 api.interceptors.request.use(
-  config => {
+  (config) => {
     const token = localStorage.getItem('accessToken');
     if (token) {
       config.headers['Authorization'] = 'Bearer ' + token;
     }
     return config;
   },
-  error => {
-    Promise.reject(error)
-  });
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-// Response interceptor to handle token expiration
 api.interceptors.response.use(
-  response => response,
-  async error => {
+  (response) => response,
+  async (error) => {
     const originalRequest = error.config;
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -121,26 +184,23 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (refreshError) {
         console.error('Token refresh failed', refreshError);
-        // Handle refresh token expiration (e.g., logout user)
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
         window.location.href = '/login';  // Redirect to login page
       }
     }
     return Promise.reject(error);
-  });
+  }
+);
 
-// Define API endpoints
 const login = (username, password) => api.post('/auth/login', { username, password });
-const register = (username, password) => api.post('/user', { username, password });
-const addEnergyRecord = (data) => api.post('/energy_records', data);
-const getEnergyRecords = () => api.get('/energy_records');
-const getAnalytics = () => api.get('/analytics');
 
-// Optionally add update and delete methods for energy records
-const updateEnergyRecord = (id, data) => api.put(`/energy_records/${id}`, data);
-const deleteEnergyRecord = (id) => api.delete(`/energy_records/${id}`);
+const register = (formData) => {
+  return api.post('/user', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data', // Set content type for FormData
+    },
+  });
+};
 
-// Export API functions
-export { login, register, addEnergyRecord, getEnergyRecords, getAnalytics, updateEnergyRecord, deleteEnergyRecord };
-
+export { login, register };
