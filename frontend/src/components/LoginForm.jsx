@@ -23,9 +23,10 @@ const LoginForm = () => {
       const { access_token, refresh_token } = response.data;
       localStorage.setItem('accessToken', access_token);
       localStorage.setItem('refreshToken', refresh_token);
-      navigate('/welcome');  // Redirect to welcome page
+      setErrorMessage(''); // Clear the error message on successful login
+      navigate('/dashboard');  // Redirect to welcome page
     } catch (error) {
-      setErrorMessage('Login failed');
+      setErrorMessage('Login failed. Please check your username and password.');
       console.error('Login failed', error);
     }
   };
@@ -37,6 +38,11 @@ const LoginForm = () => {
           <Typography variant="h4" component="h1" gutterBottom>
             Login
           </Typography>
+          {errorMessage && (
+            <Alert severity="error" className="login-error">
+              {errorMessage}
+            </Alert>
+          )}
           <form onSubmit={handleSubmit}>
             <TextField
               fullWidth
@@ -45,6 +51,7 @@ const LoginForm = () => {
               label="Username"
               value={username}
               onChange={e => setUsername(e.target.value)}
+              error={!!errorMessage}
             />
             <TextField
               fullWidth
@@ -54,12 +61,8 @@ const LoginForm = () => {
               label="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
+              error={!!errorMessage}
             />
-            {errorMessage && (
-              <Alert severity="error" className="login-error">
-                {errorMessage}
-              </Alert>
-            )}
             <Button
               fullWidth
               variant="contained"

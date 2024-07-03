@@ -1,61 +1,40 @@
+/* LoginForm.css */
+
 .login-container {
-  display: flex;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
+  display: flex;
 }
 
 .login-form-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
-  width: 70%;
+  flex: 1;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-box {
   width: 100%;
-  text-align: center;
-}
-
-.login-button {
-  margin-top: 20px;
-}
-
-.login-error {
-  margin-top: 20px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .login-image-container {
-  display: none; /* Hide on mobile */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex: 1;
+  position: relative;
 }
 
-@media (min-width: 960px) {
-  .login-container {
-    flex-direction: row;
-  }
+.login-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .login-image-container {
-    display: block;
-    flex: 1;
-    height: 100vh;
-    overflow: hidden;
-    width: 30%; /* Set width to 30% */
-  }
-
-  .login-form-container {
-    flex: 1;
-    width: 70%; /* Set width to 70% */
-    max-width: none;
-  }
-
-  .login-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.login-image-container:hover .login-image {
+  transform: scale(0.9); /* Zoom out effect */
 }
