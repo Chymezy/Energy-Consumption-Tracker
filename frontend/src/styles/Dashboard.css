@@ -1,42 +1,49 @@
-/* src/assets/styles/Dashboard.css
-.dashboard-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .date-selector-form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .date-input {
-    margin-right: 10px;
-  }
-  
-  .dashboard-grid {
-    margin-top: 20px;
-  }
-  
-  .dashboard-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-  }
-   */
-
-
 /* src/styles/Dashboard.css */
+
 .dashboard-container {
-    margin-top: 20px;
-  }
-  
-  .dashboard-card {
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.date-selector-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.date-input {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.date-input:last-of-type {
+  margin-right: 0;
+}
+
+.dashboard-grid {
+  margin-top: 2rem;
+}
+
+.dashboard-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h2 {
+  font-weight: 500;
+  color: #333;
+}
+
+.dashboard-card p {
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.date-selector-form button {
+  align-self: center;
+  margin-left: 1rem;
+}
