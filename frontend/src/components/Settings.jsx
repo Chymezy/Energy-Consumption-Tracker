@@ -1,11 +1,17 @@
+// src/components/Settings.jsx
+
 import React from 'react';
+import { Container, Typography } from '@mui/material';
+import '../styles/Settings.css';
 
 const Settings = () => {
   return (
-    <div>
-      <h2>Settings</h2>
-      {/* User settings page */}
-    </div>
+    <Container className="settings-container">
+      <Typography variant="h4" component="h1" gutterBottom>
+        Settings
+      </Typography>
+      {/* Add settings form elements here */}
+    </Container>
   );
 };
 

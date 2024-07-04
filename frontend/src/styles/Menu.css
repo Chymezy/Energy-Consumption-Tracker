@@ -1,0 +1,8 @@
+/* src/styles/Menu.css */
+
+.menu-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 16px;
+  }
+  

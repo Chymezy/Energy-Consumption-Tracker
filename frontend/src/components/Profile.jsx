@@ -1,11 +1,17 @@
+// src/components/Profile.jsx
+
 import React from 'react';
+import { Container, Typography } from '@mui/material';
+import '../styles/Profile.css';
 
 const Profile = () => {
   return (
-    <div>
-      <h2>Profile</h2>
-      {/* User profile page */}
-    </div>
+    <Container className="profile-container">
+      <Typography variant="h4" component="h1" gutterBottom>
+        Profile
+      </Typography>
+      {/* Add profile display elements here */}
+    </Container>
   );
 };
 
