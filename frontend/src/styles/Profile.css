@@ -1,6 +1,9 @@
 /* src/styles/Profile.css */
 
 .profile-container {
-    padding: 24px;
-  }
-  
+  padding: 24px;
+}
+
+.save-profile-button {
+  margin-top: 16px;
+}

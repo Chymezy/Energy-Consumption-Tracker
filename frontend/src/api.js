@@ -64,8 +64,8 @@ const deleteEnergyRecord = (id) => api.delete(`/energy-records/${id}`);
 const getEnergyTrends = () => api.get('/energy-trends');
 const getEnergyInsights = () => api.get('/energy-insights');
 
-const getUserProfile = () => api.get('/user/profile');
-const updateUserProfile = (data) => api.put('/user/profile', data); // Ensure data is already in JSON format here
+const getUserProfile = () => api.get('/user/profile'); // check profile
+const updateUserProfile = (data) => api.post('/cities', data); // profile settings
 const uploadProfilePicture = (formData) => api.post('/user/profile-picture', formData);
 
 export { 
