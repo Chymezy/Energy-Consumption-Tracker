@@ -1,16 +1,31 @@
+// // src/components/Profile.jsx
+
+// import React from 'react';
+// import { Container, Typography } from '@mui/material';
+// import '../styles/Profile.css';
+
+// const Profile = () => {
+//   return (
+//     <Container className="profile-container">
+//       <Typography variant="h4" component="h1" gutterBottom>
+//         Profile
+//       </Typography>
+//       {/* Add profile display elements here */}
+//     </Container>
+//   );
+// };
+
+// export default Profile;
+
+// src/components/Profile.jsx
+
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, TextField, Button, Alert, Grid } from '@mui/material';
+import { Container, Typography, TextField, Button, Alert } from '@mui/material';
 import profileService from '../services/profileService';
 import '../styles/Profile.css';
 
 const Profile = () => {
-  const [profile, setProfile] = useState({
-    name: '',
-    country: '',
-    cost_of_electricity: '',
-    cost_of_fuel: '',
-    electricity_availability: '',
-  });
+  const [profile, setProfile] = useState({});
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -20,7 +35,7 @@ const Profile = () => {
         const data = await profileService.getProfile();
         setProfile(data);
       } catch (error) {
-        setError('Error fetching profile data');
+        setError(error.message);
       }
     };
 
@@ -38,7 +53,7 @@ const Profile = () => {
       setSuccess('Profile updated successfully');
       setError('');
     } catch (error) {
-      setError('Error updating profile');
+      setError(error.message);
       setSuccess('');
     }
   };
@@ -51,67 +66,26 @@ const Profile = () => {
       {error && <Alert severity="error">{error}</Alert>}
       {success && <Alert severity="success">{success}</Alert>}
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Full Name"
-              name="name"
-              value={profile.name || ''}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Country"
-              name="country"
-              value={profile.country || ''}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Cost of Electricity ($ per kWh)"
-              name="cost_of_electricity"
-              type="number"
-              value={profile.cost_of_electricity || ''}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Cost of Fuel ($ per unit)"
-              name="cost_of_fuel"
-              type="number"
-              value={profile.cost_of_fuel || ''}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Electricity Availability (hours per day)"
-              name="electricity_availability"
-              type="number"
-              value={profile.electricity_availability || ''}
-              onChange={handleChange}
-            />
-          </Grid>
-        </Grid>
-        <Button variant="contained" color="primary" type="submit" className="save-profile-button">
+        <TextField
+          fullWidth
+          variant="outlined"
+          margin="normal"
+          label="Full Name"
+          name="fullName"
+          value={profile.fullName || ''}
+          onChange={handleChange}
+        />
+        <TextField
+          fullWidth
+          variant="outlined"
+          margin="normal"
+          label="Username"
+          name="username"
+          value={profile.username || ''}
+          onChange={handleChange}
+        />
+        {/* Add other profile fields here */}
+        <Button variant="contained" color="primary" type="submit">
           Save Profile
         </Button>
       </form>

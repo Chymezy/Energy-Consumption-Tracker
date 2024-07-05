@@ -1,18 +1,28 @@
-import { updateUserProfile, getUserProfile } from '../api';
+// src/services/profileService.js
 
-const profileService = {
-  getProfile: async () => {
-    const response = await getUserProfile();
+import axios from 'axios';
+
+const API_URL = '/api/profile';
+
+const getProfile = async () => {
+  try {
+    const response = await axios.get(API_URL);
     return response.data;
-  },
-  updateProfile: async (profile) => {
-    const response = await updateUserProfile(profile, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    return response.data;
-  },
+  } catch (error) {
+    throw new Error('Error fetching profile');
+  }
 };
 
-export default profileService;
+const updateProfile = async (profile) => {
+  try {
+    const response = await axios.put(API_URL, profile);
+    return response.data;
+  } catch (error) {
+    throw new Error('Error updating profile');
+  }
+};
+
+export default {
+  getProfile,
+  updateProfile,
+};
