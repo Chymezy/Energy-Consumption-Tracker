@@ -9,6 +9,9 @@ from routes.energy_record_route import EnergyRecordAPI
 from routes.city_route import CityAPI
 from routes.energy_benchmark_route import EnergyBenchmarkAPI
 from routes.energy_saving_route import EnergySavingAPI
+from routes.profile_route import ProfilePictureAPI
+
+
 import json
 from datetime import datetime
 
@@ -30,7 +33,8 @@ def create_app():
     app.json_encoder = CustomJSONEncoder
 
     api = Api(app)
-    api.add_resource(UserAPI, '/api/user')
+    api.add_resource(UserAPI, '/api/user/info')
+    api.add_resource(ProfilePictureAPI, '/api/user/profile-picture')
     api.add_resource(AuthAPI, '/api/auth/login')
     api.add_resource(TokenRefreshAPI, '/api/auth/refresh')
     api.add_resource(AnalyticsAPI, '/api/analytics')
