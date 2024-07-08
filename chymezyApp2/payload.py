@@ -1,0 +1,6 @@
+import jwt
+
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDQ3MTczMCwianRpIjoiOGUxMmJhOGMtODg5Ny00YmExLWJmNWMtNjhjMDM4ZGU2MmU1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImV6ZSIsIm5iZiI6MTcyMDQ3MTczMCwiZXhwIjoxNzIwNDcyNjMwfQ.oOhzCHBrcPgLG2loZ022m6nE8gQH9ZnW4UZo3VW7ADY"
+decoded = jwt.decode(token, options={"verify_signature": False})
+print(decoded)
+

@@ -17,6 +17,7 @@ class User(db.Model):
     sex = db.Column(db.String(10))
     user_type = db.Column(db.String(50))
     profile_picture = db.Column(db.LargeBinary)
+    profile_picture_type = db.Column(db.String(20))  # Add this line
 
     analytics = db.relationship('Analytics', back_populates='users', lazy=True)
     energy_records = db.relationship('EnergyRecord', back_populates='users', lazy=True)
