@@ -1,38 +1,3 @@
-// // src/components/Footer.jsx
-// import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTwitter, faFacebookF, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-// import '../styles/Footer.css';
-
-// const Footer = () => {
-//   return (
-//     <footer className="footer">
-//       <div className="footer-left">
-//         <a href="/policy">Policy</a>
-//         <a href="/contact">Contact</a>
-//       </div>
-//       <div className="footer-center">
-//         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-//           <FontAwesomeIcon icon={faTwitter} />
-//         </a>
-//         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-//           <FontAwesomeIcon icon={faFacebookF} />
-//         </a>
-//         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-//           <FontAwesomeIcon icon={faLinkedinIn} />
-//         </a>
-//       </div>
-//       <div className="footer-right">
-//         <span>© 2024 All rights reserved</span>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
-
-// src/components/Footer.jsx
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebookF, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';

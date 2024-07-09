@@ -1,116 +1,69 @@
-/* 
-
-.navbar, .footer {
-  position: fixed;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 1000;
-}
+/* Footer.css */
 
 .footer {
-  bottom: 0;
-  height: 60px;
-}
-
-.navbar .logo, .footer .footer-left, .footer .footer-center, .footer .footer-right {
-  display: flex;
-  align-items: center;
-}
-
-.navbar .logo img, .footer .footer-center a {
-  margin-right: 10px;
-}
-
-.navbar .nav-links a, .footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover, .footer a:hover {
-  color: #007bff;
-}
-
-.navbar .menu-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: 20px;
-}
-
-.navbar .dropdown-menu {
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background: white;
-  color: black;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  z-index: 1001;
-}
-
-.navbar .dropdown-menu a {
-  padding: 10px 20px;
-  white-space: nowrap;
-  color: black;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.navbar .dropdown-menu a:hover {
-  background: #f0f0f0;
-} */
-
-
-/* src/styles/Footer.css */
-
-.footer {
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: #333;
+  color: #fff;
   padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
 }
 
 .footer-section {
-  margin-bottom: 20px;
+  flex: 1 1 200px;
+  margin: 10px;
 }
 
 .footer-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
 .footer-section p {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  font-size: 1em;
 }
 
 .footer-social {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .footer-social a {
-  color: white;
+  color: #fff;
   margin: 0 10px;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
+  font-size: 1.5em;
+  transition: color 0.3s;
 }
 
 .footer-social a:hover {
-  color: #007bff;
+  color: #1da1f2; /* Twitter color as an example */
 }
 
 .footer-right {
-  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
+
+  .footer-social {
+    margin: 10px 0;
+  }
+
+  .footer-right {
+    margin: 10px 0;
+  }
 }
