@@ -1,0 +1,23 @@
+/* src/styles/App.css */
+/* .App {
+    font-family: Arial, sans-serif;
+  } */
+
+  /* src/styles/App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Adjust as needed */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app takes at least the full viewport height */
+}
+
+/* Additional styling as per your layout needs */
+
+  
