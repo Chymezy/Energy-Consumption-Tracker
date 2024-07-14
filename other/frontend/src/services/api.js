@@ -250,4 +250,26 @@ export const fetchDailyEnergyConsumption = async () => {
   }
 };
 
+// Login user
+export const login = async (username, password) => {
+  try {
+    const response = await api.post('/auth/login', { username, password });
+    return response.data;
+  } catch (error) {
+    console.error('Error logging in', error);
+    throw error;
+  }
+};
+
+// Register user
+export const register = async (formData) => {
+  try {
+    const response = await api.post('/user/info', formData);
+    return response.data;
+  } catch (error) {
+    console.error('Error registering', error);
+    throw error;
+  }
+};
+
 export default api;
