@@ -9,7 +9,7 @@ function handleLogin(username, password) {
       }),
       success: function(response) {
         setAuthToken(response.access_token); 
-        window.location.href = '/dashboard.html';
+        window.location.href = 'dashboard.html';
       },
       error: function(xhr, status, error) {
         console.error('Login failed:', error);
